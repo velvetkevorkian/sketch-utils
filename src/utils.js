@@ -48,4 +48,13 @@ function colorFromObject (obj, alpha, p) {
   return p.color(obj.h, obj.s, obj.l, alpha)
 }
 
-export {hexToHSL, colorToHex, rgba, colorFromObject}
+function blendModes() {
+  return ['ADD', 'BLEND', 'DARKEST', 'LIGHTEST', 'DIFFERENCE', 'EXCLUSION', 'MULTIPLY', 'SCREEN', 'REPLACE', 'OVERLAY', 'HARD_LIGHT', 'SOFT_LIGHT', 'DODGE', 'BURN']
+}
+
+function shapeTypes() {
+  return  ['none', 'POINTS', 'LINES', 'TRIANGLES', 'TRIANGLE_STRIP', 'TRIANGLE_FAN', 'QUADS', 'QUAD_STRIP']
+}
+
+
+export {hexToHSL, colorToHex, rgba, colorFromObject, blendModes, shapeTypes}
