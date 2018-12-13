@@ -28,4 +28,24 @@ function hexToHSL(hex, hScale = 360, sScale = 100, lScale = 100) {
   }
 }
 
-export {hexToHSL}
+function colorToHex (col, p) {
+  let result = [
+    ('0' + Math.floor(p.red(col)).toString(16)),
+    ('0' + Math.floor(p.green(col)).toString(16)),
+    ('0' + Math.floor(p.blue(col)).toString(16))
+  ].map(i => i.substring(i.length - 2))
+
+  return `#${result.join('')}`
+}
+
+function rgba (hex, alpha, p) {
+  const col = p.color(hex)
+  col.setAlpha(alpha)
+  return col
+}
+
+function colorFromObject (obj, alpha, p) {
+  return p.color(obj.h, obj.s, obj.l, alpha)
+}
+
+export {hexToHSL, colorToHex, rgba, colorFromObject}
